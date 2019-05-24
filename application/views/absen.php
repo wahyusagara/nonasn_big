@@ -1,37 +1,56 @@
-<div class="containers" style="padding:10px;">
-	daf
-	<?php
+<?php  
+ $sumber = 'http://10.10.160.189/sinkron/konek.php';
 
-		$curl = curl_init();
+ 
+ $user = $_SESSION["user_name"];
+ 
+ $konten = file_get_contents($sumber);
+ $data = json_decode($konten, true);
 
-		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://10.10.160.189/sinkron/konek.php",
-		CURLOPT_RETURNTRANSFER => true,
-		CURLOPT_ENCODING => "",
-		CURLOPT_MAXREDIRS => 10,
-		CURLOPT_TIMEOUT => 30,
-		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-		CURLOPT_CUSTOMREQUEST => "GET",
-		CURLOPT_HTTPHEADER => array(
-			"cache-control: no-cache",
-			"postman-token: a9eb45ca-e4bf-bc8b-803c-73f276fe4032"
-		),
-		));
+?>
 
-		$response = curl_exec($curl);
-		$err = curl_error($curl);
+<div class="container" style="padding:10px;">
 
-		curl_close($curl);
 
-		if ($err) {
-		echo "cURL Error #:" . $err;
-		} else {
-			// echo "<script>console.log('" . json_encode($response) . "');</script>";
-		// echo "<pre>";
-		echo $response;
-		}
-	?>
-	
-	
+  <table id="example" class="display" style="width:100%;">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Tempat Lahir</th>
+        <th scope="col">Jabatan</th>
+        <th scope="col">Unit Kerja</th>
+        <th scope="col">Unit Kerja</th>
+      </tr>
+    </thead>
+    <tbody>
+    <?php   
+      for($a=1; $a < count($data); $a++)
+      {
+        print "<tr>";
+        // penomeran otomatis
+        print "<td>".$a."</td>";
+        // menayangkan 
+        print "<td>".$data[$a]['userID'] = "1111"."</td>";
+        print "<td>".$data[$a]['terminalName']."</td>";
+        print "<td>".substr_replace( $data[$a][''], '', 10 )."</td>";
+        print "<td>".substr($data[$a][''], 10, -3)."</td>";
 
+        // print "<td>".$data[$a]['']."</td>";
+        // print substr_replace( $data[$a][''], ':', 2 );
+        print "</tr>";
+      }
+    ?>
+      
+    </tbody>
+    <tfoot>
+      <tr>
+        <th scope="col">Nama</th>
+        <th scope="col">Tempat Lahir</th>
+        <th scope="col">Jabatan</th>
+        <th scope="col">Unit Kerja</th>
+        <th scope="col">Unit Kerja</th>
+      </tr>
+    </tfoot>
+  </table>
+  
 </div>
