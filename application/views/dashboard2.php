@@ -11,6 +11,8 @@
 
 	<div class="row">
 		<div class="col-md-12">
+
+		
 			<table id="example" class="display" style="width:100%;">
 				<thead>
 					<tr>

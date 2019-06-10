@@ -3,7 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Model
 {
-	//fungsi cek session
+    //fungsi cek session
+    
     function logged_id()
     {
         return $this->session->userdata('user_id');
@@ -50,5 +51,24 @@ class Admin extends CI_Model
         log_message('debug',print_r($query,TRUE));
         return $query->result ();
         
+    }
+
+    function show_peg_id($data){
+        $sess = $this->session->userdata('user_id');
+        // print $sess;
+        // die();
+		$this->db->select('*');
+		$this->db->from('tb_pegawai');
+		$this->db->where('id_data_pegawai', $sess);
+		$query = $this->db->get();
+		$result = $query->result();
+		return $result;
+	}
+
+    function update_pegawai($id,$data){
+        $sess = $this->session->userdata('user_id');
+        // $this->db->where('absen_id', $id);
+        $this->db->where('id_data_pegawai',  $sess);
+        $this->db->update('tb_pegawai', $data);
     }
 }
