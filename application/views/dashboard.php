@@ -34,7 +34,7 @@
 		<div class="jumbotron col-sm-12">
 		<h3 class="display-6">
 		<?php 
-			echo "Welcome Back,";
+			echo "Welcome Back, ";
 			echo "<b>";
 			echo $_SESSION["user_nama"];
 			echo "</b>";
