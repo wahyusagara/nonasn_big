@@ -17,6 +17,7 @@
 				<thead>
 					<tr>
 						<th scope="col">Nama</th>
+						<th scope="col">Email</th>
 						<th scope="col">Tempat Lahir</th>
 						<th scope="col">Jabatan</th>
 						<th scope="col">Unit Kerja</th>
@@ -27,6 +28,19 @@
 				<?php foreach($query as $row): ?>
 				<tr>   
 					<td><?php echo $row->nama_pegawai; ?></td>
+					<td width=20%>
+						<div class="input-group mb-10">
+							<input type="text" class="form-control" value="<?php echo $row->email; ?>" disabled  id="emailBtn">
+							<div class="input-group-append">
+								<button  onclick="myFunction()" class="btn btn-outline-secondary" type="button">
+								<i class="far fa-copy"></i>
+								</button>
+							</div>
+						</div>
+						<!-- <?php echo $row->email; ?> -->
+						<!-- <input type="text" value="<?php echo $row->email; ?>" id="emailBtn">
+						<button onclick="myFunction()">Copy</button> -->
+					</td>
 					<td><?php echo $row->tempat_lahir; ?></td>
 					<td><?php echo $row->nama_jabatan; ?></td>
 					<td><?php echo $row->nama_unit_kerja_es_2; ?></td>
@@ -52,3 +66,12 @@
 	</div>
 
 </div>
+
+<script>
+function myFunction() {
+  var copyText = document.getElementById("emailBtn");
+  copyText.select();
+  document.execCommand("copy");
+  alert("Copied Text: " + copyText.value);
+}
+</script>

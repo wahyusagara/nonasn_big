@@ -53,7 +53,7 @@ class Dashboard extends CI_Controller {
 		// $data['students'] = $this->update_model->show_students();
 		$data['single_peg'] = $this->admin->show_peg_id($id);
 		$this->load->view("part/nav");
-		$this->load->view("dashboard", $data,$sess);			
+		$this->load->view("pegawai", $data,$sess);			
 		$this->load->view("part/footer");
 	}
 	
@@ -65,6 +65,8 @@ class Dashboard extends CI_Controller {
 		'nama_pegawai' => $this->input->post('xnama'),
 		'email' => $this->input->post('xemail'),
 		'no_hp' => $this->input->post('xtlp'),
+		'tempat_lahir' => $this->input->post('xtempatlahir'),
+		'tgl_lahir' => $this->input->post('xtgllahir'),
 		'agama' => $this->input->post('xagama'),
 		'alamat' => $this->input->post('xalamat')
 		);

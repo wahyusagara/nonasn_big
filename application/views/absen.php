@@ -40,7 +40,8 @@ function formatDate(date) {
   <table id="example" class="display" style="width:100%;">
     <thead>
       <tr>
-        <th scope="col">No</th>
+        <th scope="col">Nama</th>
+        <th scope="col">Email</th>
         <th scope="col">Tempat Lahir</th>
         <th scope="col">Jabatan</th>
         <th scope="col">Unit Kerja</th>
