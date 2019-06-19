@@ -47,6 +47,14 @@ class Dashboard extends CI_Controller {
 		$this->load->view("part/footer");
 	}
 
+	public function add_user()
+	{
+		$data['query'] = $this->admin->viewpegawai();
+		$this->load->view("part/nav");
+		$this->load->view("add_user", $data);			
+		$this->load->view("part/footer");
+	}
+
 	function show_pegawai_id() {
 		$sess = $this->session->userdata('absenid');
 		$id = $this->uri->segment(3);

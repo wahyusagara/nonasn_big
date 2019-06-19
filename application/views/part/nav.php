@@ -15,6 +15,7 @@
   <link href="<?= base_url();?>/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="<?= base_url();?>/assets/css/datatable.css"/>
+  <link rel="stylesheet" type="text/css" href="<?= base_url();?>/assets/css/big.css"/>
 
   <!-- Custom styles for this template-->
   <link href="<?= base_url();?>assets/css/sb-admin-2.css" rel="stylesheet">
@@ -32,7 +33,7 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url();?>">
         <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+        <i class="fas fa-atom"></i>
         </div>
         <div class="sidebar-brand-text mx-3">|Non ASN </div>
       </a>
@@ -47,6 +48,20 @@
           <span>Dashboard</span></a>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#rbac" aria-expanded="true" aria-controls="rbac">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>User Management</span>
+        </a>
+        <div id="rbac" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">User</h6>
+            <!-- <a class="collapse-item" href="buttons.html">ASN</a> -->
+            <a class="collapse-item" href="<?= base_url();?>index.php/dashboard/add_user">Add User</a>
+            <!-- <a class="collapse-item" href="<?= base_url();?>index.php/daftar/absen">Akses</a> -->
+          </div>
+        </div>
+      </li>
       <!-- Divider -->
       <!-- <hr class="sidebar-divider">
       <div class="sidebar-heading">
@@ -63,8 +78,8 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Daftar Pegawai</h6>
             <!-- <a class="collapse-item" href="buttons.html">ASN</a> -->
-			<a class="collapse-item" href="<?= base_url();?>index.php/daftar">Lihat Daftar</a>
-			<a class="collapse-item" href="<?= base_url();?>index.php/daftar/absen">Lihat Absen</a>
+            <a class="collapse-item" href="<?= base_url();?>index.php/daftar">Lihat Daftar</a>
+            <a class="collapse-item" href="<?= base_url();?>index.php/daftar/absen">Lihat Absen</a>
           </div>
         </div>
       </li>
