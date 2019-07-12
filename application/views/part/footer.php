@@ -11,7 +11,8 @@
     <!-- End of Content Wrapper -->
 
   </div>
-    <script type="text/javascript" src="<?= base_url();?>/assets/js/jquery.js"></script>
+   <script type="text/javascript" src="<?= base_url();?>/assets/js/jquery.js"></script>
+    <script type="text/javascript" src="<?= base_url();?>/assets/js/bootstrap-datepicker.js"></script>
     <script type="text/javascript" src="<?= base_url();?>/assets/js/datatable.min.js"></script>
     <script>
         $(document).ready(function() {

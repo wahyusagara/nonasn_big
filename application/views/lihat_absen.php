@@ -20,27 +20,31 @@
 <div class="container-fluid">
     <script>document.write('<em>' + hari +'</em>' + tanggal + '<em> ' + bulan + '</em> ' + tahun);</script>
 	<div class="container">
-         <!-- <?php foreach($list as $result) {
+        <!-- <?php foreach($list as $result) {
             echo "<pre>";
             echo substr($result[''],5);
             echo "</pre>";
         }
-        ?>  -->
+        ?>   -->
 
         <?php
+        // === Menampilkan array waktu awal dan akhir =====
 
             $grouped_types = array();
             foreach($list as $type){
                 $grouped_types[substr($type[''],0,10)][] = substr($type[''],11);
             }
-            // print "<pre>";
-            // print_r($grouped_types);
-            // print "</pre>";
+            print "<pre>";
+            print_r($grouped_types);
+            // var_dump($grouped_types);
+            print "</pre>";
+            
 
-            foreach($grouped_types as $key=> $val)
-            {
-            echo $key." absen pada jam ->". $val[''];
-            }
+
+            // foreach($grouped_types as $key => $val)
+            // {
+            // echo $key." absen pada jam ->". $val[''];
+            // }
         ?>
     </div>
 </div>
