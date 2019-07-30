@@ -6,6 +6,7 @@ class Daftar extends CI_Controller {
     public function __construct()
     {
 		parent::__construct();
+		
 		$this->load->helper('url');
 		$this->load->library('xmlrpc');
 		// $this->load->library('xmlrpcs');

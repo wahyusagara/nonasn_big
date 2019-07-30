@@ -28,23 +28,48 @@
         ?>   -->
 
         <?php
-        // === Menampilkan array waktu awal dan akhir =====
-
             $grouped_types = array();
             foreach($list as $type){
                 $grouped_types[substr($type[''],0,10)][] = substr($type[''],11);
             }
             print "<pre>";
             print_r($grouped_types);
-            // var_dump($grouped_types);
             print "</pre>";
-            
 
-
-            // foreach($grouped_types as $key => $val)
-            // {
-            // echo $key." absen pada jam ->". $val[''];
-            // }
         ?>
+
+    
+     <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Tanggal</th>
+            <th>Jam Datang</th>
+            <th>Jam Pulang</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?
+        foreach($list as $type) {
+            $grouped_types[substr($type[''],0,10)][] = substr($type[''],11);
+        }
+        ?> 
+            <? foreach ($grouped_types as $row) : ?>
+            <tr>
+                <td>
+                    <? 
+                        echo substr($type[''],0,10); 
+                        // echo current($row) ;
+                    ?>
+                </td>
+                <td>
+                    <? echo end($row);?>
+                </td>
+                <td>
+                    <? echo $row[0]; ?>
+                </td>
+            </tr>
+            <? endforeach; ?>
+        </tbody>
+    </table>
     </div>
 </div>

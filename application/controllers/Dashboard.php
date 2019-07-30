@@ -5,7 +5,8 @@ class Dashboard extends CI_Controller {
 
     public function __construct()
     {
-        parent::__construct();
+		parent::__construct();
+		
         //load model admin
 		$this->load->model('admin');
 		$sess = $this->session->userdata('absenid');
@@ -30,7 +31,7 @@ class Dashboard extends CI_Controller {
 			// $data['students'] = $this->update_model->show_students();
 			$data['single_peg'] = $this->admin->show_peg_id($id);
 			$this->load->view("part/nav");
-			$this->load->view("dashboard", $data,$sess);			
+			$this->load->view("profile_page", $data,$sess);			
 			$this->load->view("part/footer");
 		}else{
 

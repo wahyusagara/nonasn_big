@@ -1,6 +1,7 @@
 <script src="<?= base_url();?>assets/js/d3v3.js""></script>
 <link rel="stylesheet" href="<?= base_url();?>assets/css/leaflet.css" />
 <link rel="stylesheet" href="<?= base_url();?>assets/css/big.css" />
+<link href="https://fonts.googleapis.com/css?family=Bungee+Inline&display=swap" rel="stylesheet">
 <script src="<?= base_url();?>assets/js/topos.js"></script>
 <script src="<?= base_url();?>assets/js/leaflet.js"></script>
 <script src="<?= base_url();?>assets/js/tanggal.js"></script>
@@ -19,13 +20,32 @@
 	padding: 0;
 	}
 	#mapid { 
-	height: 500px;
+	height: 200px;
 	}
 	#map {
 		height: 500px;
+		padding:20px;
 	}
-	
-	
+	.jam{
+		font-family: 'Bungee Inline', cursive;
+		font-size: 58px;
+	}
+	.nama{
+		font-family: 'Bungee Inline', cursive;
+		font-size: 30px;
+		margin-left:10px;
+	}
+	.bg-hijau{
+		padding:20px; text-align:center; background:#ddd; background: #5bc763;
+    	color: #a9ff3f;
+	}
+	.heads{
+		padding:10px;
+		background:#f4f4f4;
+	}
+	.bigtext {
+		height:200px;
+	}
 </style>
 <?php  
  $sumber = 'http://10.10.160.189/absen/today.php';
@@ -55,16 +75,16 @@
 				</p>
 			</div><!--./col-md-->
 		<div class="row">
-			<div class="jumbotron col-sm-12">
-			<h3 class="display-6">
-			
-			<?php 
-				echo "Welcome Back, ";
-				echo "<b>";
-				echo $_SESSION["user_nama"];
-				echo "</b>";
-			?>
-			</h3>
+			<div class="heads col-sm-8">
+			<b>Welcome Back, </b>
+			<h1 class="nama">
+				<?php 
+					// echo "Welcome Back, ";
+					echo "<b>";
+					echo $_SESSION["user_nama"];
+					echo "</b>";
+				?>
+			</h1>
 
 
 			<hr class="my-4">
@@ -94,26 +114,50 @@
 					</div> -->
 					<div class="col-md-12" id="mapid"></div>
 
-					<div class="col-md-12" style="padding:20px; text-align:center;">
-					<h4>absen anda hari ini: <br>
-						<?php 
-						foreach($list as $result) {
-						echo substr($result[''],10,6);
-
-						$hasil = $result;
-						$first = reset($hasil);
-						$last = end($hasil);
-						// $arrayList = array();
-						// echo $first ;
-						// echo "<br>";
-						// echo $last; 
-					}
-						?>
-						
-						
+					<div class="col-md-12" style="margin-top:20px;">
+						<form>
+						<h2>LOG BOOK</h2>
+						<div class="form-group row">
+							<div class="col-sm-12">
+							<input type="text" class="form-control bigtext" placeholder="apa yang anda lakukan hari ini ....">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="exampleFormControlSelect1">Type</label>
+							<select class="form-control" id="exampleFormControlSelect1">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+							</select>
+						</div>
+						<button type="button" class="btn btn-primary btn-lg btn-block">Isi Log Book</button>
+						</form>
 					</div>
 					
 				<!-- </div> -->
+				
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="col-md-12 bg-hijau">
+			absen anda hari ini: <br>
+			<span class="jam">
+				<?php 
+				foreach($list as $result) {
+				echo substr($result[''],10,6);
+
+				$hasil = $result;
+				$first = reset($hasil);
+				$last = end($hasil);
+				// $arrayList = array();
+				// echo $first ;
+				// echo "<br>";
+				// echo $last; 
+				}
+				?>
+			</span>	
 				
 			</div>
 		</div>

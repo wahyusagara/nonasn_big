@@ -131,9 +131,7 @@
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
             
-
             <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - User Information -->
@@ -156,8 +154,8 @@
                 <a class="dropdown-item" href="<?php echo base_url() ?>index.php/dashboard/logout" >
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
-				</a>
-				<!-- <a href="<?php echo base_url() ?>index.php/dashboard/logout" type="submit" class="btn-xs btn-danger"><i class="fa fa-sign-out"></i> Logout</a> -->
+				        </a>
+				        <!-- <a href="<?php echo base_url() ?>index.php/dashboard/logout" type="submit" class="btn-xs btn-danger"><i class="fa fa-sign-out"></i> Logout</a> -->
               </div>
             </li>
 
