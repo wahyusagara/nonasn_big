@@ -9,191 +9,121 @@
         background:#ddd;
     }
 </style>
+<!-- <h1 class="nama">
+    <?php 
+        // echo "Welcome Back, ";
+        echo "<b>";
+        echo $_SESSION["user_name"];
+        echo "</b>";
+    ?>
+</h1> -->
 <div class="container-fluid">
     <table class="table table-striped">
         <h2> Form Pengurusan Izin Cuti </h2>
-        <tbody>
-            <tr>
-                <td>
-                <form method="post">
-                <!-- <form action="<?php echo base_url(). 'Izin/tambah_aksi'; ?>" method="post" class="well form-horizontal"> -->
-                <div class="row">
-                    <div class="col-sm-4">
-                        <!-- <fieldset>
-                            <input type="hidden" name="id_karyawan" value="<?php echo $_SESSION["user_id"]; ?>">
-                            <div class="form-group">
-                                <label class="col-md-4 control-label">Jenis Cuti</label>
-                                <div class="col-md-12 inputGroupContainer">
-                                <div class="input-group">
-                                    <span class="input-group-addon" style="max-width: 100%;"><i class="glyphicon glyphicon-list"></i></span>
-                                    <select class="selectpicker form-control" name="jenis_cuti">
-                                        <?php 
-                                            foreach($jenis_cuti as $u){ 
-                                        ?>
-                                        <option value="<?php echo $u->id ?>">
-                                            <?php echo $u->jenis_cuti ?>
-                                        </option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label">Tanggal</label>
-                                <div class="col-md-12 inputGroupContainer">
-                                    <div class="input-group date" data-provide="datepicker">
-                                        <input name="tanggal" type="text" class="form-">
-                                        <div class="input-group-addon">
-                                            <span class="glyphicon glyphicon-th"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-12 control-label">Lama Izin (Hari) </label>
-                                <div class="col-md-12 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                                        <input name="lama" name="phoneNumber" class="form-control" required="true" type="number">
-                                    </div>
-                                </div>
-                            </div>
+        <div class="col-md-6">
+            <!-- <form action="" method="post"> -->
+            <form action="<?php echo base_url();?>index.php/izin/do_insert" method="post">
+                <input type="hidden" value="<? echo $_SESSION["user_name"]; ?>" name="id_karyawan" placeholder="1111">
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-3 col-form-label">Jenis Cuti</label>
+                    <div class="col-sm-9">
+                    <select class="selectpicker form-control" name="id_cuti">
+                        <?php 
+                            foreach($jenis_cuti as $u){ 
+                        ?>
+                        <option value="<?php echo $u->id ?>">
+                            <?php echo $u->jenis_cuti ?>
+                        </option>
+                        <?php } ?>
+                    </select>
+                    </div>
+                </div>
 
-                            <div class="form-group">
-                                <label class="col-md-12 control-label">Detail Keperluan </label>
-                                <div class="col-md-12 inputGroupContainer">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                                    <input name="detail" id="phoneNumber" name="detail" class="form-control detail" required="true" type="text"></div>
-                                </div>
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-3 col-form-label">Tanggal</label>
+                    <div class="col-sm-9">
+                        <div class="input-group date form_datetime" data-provide="datepicker">
+                            <input name="tanggal" type="text">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-th"></span>
                             </div>
-
-                            <div class="form-group">
-                                <label class="col-md-12 control-label">Nama Atasan</label>
-                                <div class="col-md-12 inputGroupContainer">
-                                    <div class="input-group">
-                                        <span class="input-group-addon" style="max-width: 100%;"><i class="glyphicon glyphicon-list"></i></span>
-                                        <select class="selectpicker form-control" name="atasan">
-                                            <?php 
-                                                foreach($pejabat as $pj){ 
-                                            ?>
-                                            <option value="<?php echo $pj->id ?>">
-                                                <?php 
-                                                    echo $pj->nama_pejabat ;
-                                                    echo " / ";
-                                                    echo $pj->Gol ;
-                                                    // echo "]" ;
-                                                ?>
-                                            </option>
-                                            <?php } ?>
-                                        </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <center>
-                                    <input type="submit" name="save" value="Save Data"/>
-                                    <!-- <a href="" class="btn btn-primary"> Submit Data </a> -->
-                                    <!-- <a href="" class="btn btn-default"> cancel </a> -->
-                                    </center>
-                                <!-- </div>
-                            </div>
-                        </fieldset> --> 
-
-                        <div>
-                        <h3>Tambah Data</h3>
-                            <?php
-                            echo form_open('Izin/tambahdata');
-                            ?>
-                            <table>
-                                <tr>
-                                    <td>id karyawan</td>
-                                    <td>:</td>
-                                    <td><?php echo form_input('id_karyawan'); ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Cuti</td>
-                                    <td>:</td>
-                                    <td><?php echo form_input('id_cuti'); ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Lama cuti</td>
-                                    <td>:</td>
-                                    <td><?php echo form_input('lama_cuti'); ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Detail</td>
-                                    <td>:</td>
-                                    <td><?php echo form_input('detail'); ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Id Atasan</td>
-                                    <td>:</td>
-                                    <td><?php echo form_input('id_atasan'); ?></td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo form_submit('submit','Simpan','id="submit"'); ?></td>
-                                </tr>
-                            </table>
-                            <?php echo form_close(); ?>
-                        </div>
-
-                        <div class="col-sm-8">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>Tanggal</th>
-                                    <th>jenis Cuti</th>
-                                    <th>Lama Cuti</th>
-                                    <th>Deskripsi</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                
-                                    <?php 
-                                        foreach($cuti as $cut){ 
-                                    ?>
-                                    <tr>
-                                    
-                                        <?php 
-                                            echo "<td>"; echo $cut->tanggal; echo "</td>";
-                                            echo "<td>"; echo $cut->jenis_cuti; echo "</td>";
-                                            echo "<td>"; echo $cut->lama_cuti; echo " hari"; echo "</td>";
-                                            echo "<td>"; echo $cut->detail; echo "</td>";
-                                        ?>
-                                    </tr>
-                                    <?php } ?>
-                                </tbody>
-                            </table>
                         </div>
                     </div>
-                    
                 </div>
                 
-                
-                    
-                </form>
-                </td>
-
-                <div class="col-sm-12" style="border:1px solid #f00; padding: 10px;">
-                Informasi kelengkapan syarat cuti
-                <br> 1. Pengambilan Cuti Miid_karyawanal 1 Hari
-                <br> 2. Waktu pengambilan cuti maksimal H+5 kerja setelah cuti mulai dilakukan
-
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-3 col-form-label">Jumlah Hari</label>
+                    <div class="col-sm-9">
+                    <input type="number" class="form-control" id="staticEmail" name="lama_cuti">
+                    </div>
                 </div>
-                </form>
-            </tr>
-            
-        </tbody>
+
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-3 col-form-label">Deskripsi Izin</label>
+                    <div class="col-sm-9">
+                    <input type="text" class="form-control" id="staticEmail" name="detail">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-3 col-form-label">Nama Atasan</label>
+                    <div class="col-sm-9">
+                    <select class="selectpicker form-control" name="id_atasan">
+                            <?php 
+                                foreach($pejabat as $pj){ 
+                            ?>
+                            <option value="<?php echo $pj->id ?>">
+                                <?php 
+                                    echo $pj->nama_pejabat ;
+                                    echo " / ";
+                                    echo $pj->Gol ;
+                                    // echo "]" ;
+                                ?>
+                            </option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                </div>
+                <!-- <input type="text" name="id_cuti" placeholder="2222"> -->
+                <!-- <input type="text" name="lama_cuti" placeholder="3333">
+                <input type="text" name="detail" placeholder="4444">
+                <input type="text" name="id_atasan" placeholder="5555"> -->
+                <!-- <a href="<?php echo base_url('index.php/izin/do_insert'); ?>" class="btn btn-primary btn-lg active" role="button">Primary link</a> -->
+                <input type='submit'>
+            </form>
+        </div>
     </table>
+
+    <div class="col-sm-8">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Tanggal</th>
+                <th>jenis Cuti</th>
+                <th>Lama Cuti</th>
+                <th>Deskripsi</th>
+            </tr>
+            </thead>
+            <tbody>
+            
+                <?php 
+                    foreach($cuti as $cut){ 
+                ?>
+                <tr>
+                
+                    <?php 
+                        echo "<td>"; echo $cut->tanggal; echo "</td>";
+                        echo "<td>"; echo $cut->jenis_cuti; echo "</td>";
+                        echo "<td>"; echo $cut->lama_cuti; echo " hari"; echo "</td>";
+                        echo "<td>"; echo $cut->detail; echo "</td>";
+                    ?>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <script type="text/javascript">
- $(function(){
-  $(".datepicker").datepicker({
-      format: 'yyyy-mm-dd',
-      autoclose: true,
-      todayHighlight: true,
-  });
- });
-</script>
+    $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd'});
+</script>   

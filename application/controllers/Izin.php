@@ -54,14 +54,41 @@ class Izin extends CI_Controller{
     //     }
 	// }
 	
-	function tambahdata(){
- 
-        if($this->input->post('submit')){
-            // $this->load->model('Cuti');
-            $this->Cuti->tambah();
-            redirect('Izin/index');
+	function do_insert(){
+        $this->load->helper('form');
+		$this->load->library('form_validation');
+		$tanggal= date('Y-m-d',strtotime($tanggal));
+
+        $this->form_validation->set_rules('id_karyawan', 'id_karyawan', 'required');
+		$this->form_validation->set_rules('id_cuti', 'id_cuti', 'required');
+		$this->form_validation->set_rules('tanggal', 'tanggal', 'required');
+        $this->form_validation->set_rules('lama_cuti', 'lama_cuti', 'required');
+        $this->form_validation->set_rules('id_atasan', 'id_atasan', 'required');
+        $this->form_validation->set_rules('detail', 'detail', 'required');
+
+        if ($this->form_validation->run() === FALSE) {
+            echo "gagal diinsert";
+        } else {
+            //check in the array that it is same as column name in table like 'id_karyawan' will be present on the table        
+            $datac = array(
+                'id_karyawan' => $this->input->post('id_karyawan'),
+				'id_cuti' => $this->input->post('id_cuti'),
+				'tanggal' => $this->input->post('tanggal'),
+                'lama_cuti' => $this->input->post('lama_cuti'),
+                'id_atasan' => $this->input->post('id_atasan'),
+                'detail' => $this->input->post('detail'),
+            );
+
+            $this->db->insert('tbl_cuti', $datac);
+            $insert_id = $this->db->insert_id();
+            if(!empty($insert_id)){
+				// $this->load->view('dashboard');
+				redirect('izin');
+            }else{
+                echo "failed";           
+            }
+
         }
-        $this->load->view('ventrybukukas');
     }
 
 }

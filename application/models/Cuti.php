@@ -19,39 +19,23 @@ class Cuti extends CI_Model
 		log_message('debug',print_r($cuti,TRUE));
 		return $cuti->result ();
     }
-    
-    // function tambah() {
-    //     $id_karyawan = $this->input->post('id_karyawan');
-    //     $id_cuti  = $this->input->post('id_cuti');
-    //     $lama_cuti = $this->input->post('lama_cuti');
-	// 	$detail = $this->input->post('detail');
-	// 	// $tanggal = $this->input->post('tanggal');
-    //     $id_atasan = $this->input->post('id_atasan');
-    //     $data = array (
-    //         'id_karyawan' => $id_karyawan,
-    //         'id_cuti'  => $id_cuti,
-    //         'lama_cuti'=> $lama_cuti,
-	// 		'detail' => $detail,
-	// 		// 'tanggal'=> $tanggal,
-    //         'id_atasan' => $id_atasan,
-    //     );  
-    //     $this->db->insert('tbl_cuti',$data);
-	// }
 	
-	function tambah(){
-        $id_karyawan = $this->input->post('id_karyawan');
-        $id_cuti = $this->input->post('id_cuti');
-		$lama_cuti = $this->input->post('lama_cuti');
-		$detail = $this->input->post('detail');
-        $id_atasan = $this->input->post('id_atasan');
-        $data = array(
-                'id_karyawan'=>$id_karyawan,
-                'id_cuti'=>$id_cuti,
-				'lama_cuti'=>$lama_cuti,
-				'detail'=>$detail,
-                'id_atasan'=>$id_atasan,
-                );
-        $this->db->insert('tbl_cuti',$data);
-    }
+	// function insert() {
+	// 	$insert_cuti = array(
+	// 	'nama' => $this->input->post('nama'),
+	// 	'alamat' => $this->input->post('alamat'),
+	// 	'notelp' => $this->input->post('notelp'),
+	// 	'email' => $this->input->post('email'),
+	// 	'jnskelamin' => $this->input->post('jnskelamin'),
+	// 	'agama' => $this->input->post('agama'),
+	// 	'tmplahir' => $this->input->post('tmplahir'),
+	// 	'tgllahir' => $this->input->post('tgllahir'),
+	// 	);
+		
+	// 	$insert = $this->db->insert('karyawan', $insert_cuti);
+	// 	return $insert;
+	// }
+
+	
 	
 }
