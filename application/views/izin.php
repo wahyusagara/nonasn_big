@@ -1,3 +1,8 @@
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.js" data-modules="effect effect-bounce effect-blind effect-bounce effect-clip effect-drop effect-fold effect-slide"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
+
 <style>
     .detail {
         height:100px;
@@ -22,6 +27,7 @@
         <h2> Form Pengurusan Izin Cuti </h2>
         <div class="col-md-6">
             <!-- <form action="" method="post"> -->
+            <?php echo validation_errors(); ?>
             <form action="<?php echo base_url();?>index.php/izin/do_insert" method="post">
                 <input type="hidden" value="<? echo $_SESSION["user_name"]; ?>" name="id_karyawan" placeholder="1111">
                 <div class="form-group row">
@@ -42,12 +48,7 @@
                 <div class="form-group row">
                     <label for="staticEmail" class="col-sm-3 col-form-label">Tanggal</label>
                     <div class="col-sm-9">
-                        <div class="input-group date form_datetime" data-provide="datepicker">
-                            <input name="tanggal" type="text">
-                            <div class="input-group-addon">
-                                <span class="glyphicon glyphicon-th"></span>
-                            </div>
-                        </div>
+                    <input type="text" class="startdate" name="tanggal" size="30" autocomplete="off"/>
                     </div>
                 </div>
                 
@@ -125,5 +126,9 @@
 </div>
 
 <script type="text/javascript">
-    $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd'});
+    $( ".startdate" ).datepicker({
+    dateFormat: 'yy-mm-dd',//check change
+    changeMonth: true,
+    changeYear: true
+    });
 </script>   

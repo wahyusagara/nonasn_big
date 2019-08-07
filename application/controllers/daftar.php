@@ -61,7 +61,7 @@ class Daftar extends CI_Controller {
 		
 		
 		$this->load->view("part/nav");
-		$this->load->view("lihat_absen");			
+		$this->load->view("lihat_absen2");			
 		$this->load->view("part/footer");
 	}
 

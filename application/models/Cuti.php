@@ -11,10 +11,13 @@ class Cuti extends CI_Model
 		return $this->db->get('tb_pejabat');
 	}
 	function tampil_cuti(){
+		$sess = $this->session->userdata('user_name');
 		// return $this->db->get('tbl_cuti');
 		$this->db->select ( '*' ); 
-        $this->db->from ( 'tbl_cuti' );
-        $this->db->join ( 'cuti', 'cuti.id = tbl_cuti.id_cuti' , 'left' );
+		$this->db->from ( 'tbl_cuti' );
+		$this->db->where('id_karyawan', $sess);
+		$this->db->join ( 'cuti', 'cuti.id = tbl_cuti.id_cuti' , 'left' );
+		$this->db->order_by("tanggal", "desc");
 		$cuti = $this->db->get ();
 		log_message('debug',print_r($cuti,TRUE));
 		return $cuti->result ();

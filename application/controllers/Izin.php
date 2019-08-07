@@ -11,15 +11,15 @@ class Izin extends CI_Controller{
 	}
  
 	function index(){
-		
+		$sess = $this->session->userdata('user_name');
 		$data['jenis_cuti'] = $this->Cuti->tampil_data()->result();
 		$data['pejabat'] = $this->Cuti->tampil_pejabat()->result();
 		// $data['cuti'] = $this->Cuti->tampil_cuti()->result();
-		$data['cuti'] = $this->Cuti->tampil_cuti();
+		$data['cuti'] = $this->Cuti->tampil_cuti($sess);
 		// print $data;
 		// die();
 		$this->load->view("part/nav");
-		$this->load->view("izin", $data);			
+		$this->load->view("izin", $data,$sess);			
 		$this->load->view("part/footer");
 	}
 
@@ -57,7 +57,7 @@ class Izin extends CI_Controller{
 	function do_insert(){
         $this->load->helper('form');
 		$this->load->library('form_validation');
-		$tanggal= date('Y-m-d',strtotime($tanggal));
+		$d = date("Y-m-d");
 
         $this->form_validation->set_rules('id_karyawan', 'id_karyawan', 'required');
 		$this->form_validation->set_rules('id_cuti', 'id_cuti', 'required');
@@ -67,7 +67,8 @@ class Izin extends CI_Controller{
         $this->form_validation->set_rules('detail', 'detail', 'required');
 
         if ($this->form_validation->run() === FALSE) {
-            echo "gagal diinsert";
+			// echo "gagal memasukan data, ";
+			print_r($this->form_validation->error_array());
         } else {
             //check in the array that it is same as column name in table like 'id_karyawan' will be present on the table        
             $datac = array(
