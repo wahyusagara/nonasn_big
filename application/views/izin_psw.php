@@ -15,6 +15,13 @@
     .kanan{
         background:#ddd;
     }
+    .tombol{
+        width:100%;
+        border-radius:0px;
+    }
+    .btn-sm{
+        font-size:12px;
+    }
 </style>
 <!-- <h1 class="nama">
     <?php 
@@ -145,6 +152,7 @@
                     <th>jenis Izin</th>
                     <th>Deskripsi</th>
                     <th>File</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -152,8 +160,7 @@
                     <?php 
                         foreach($izin_psw as $izin){ 
                     ?>
-                    <tr>
-                    
+                    <form action="<?php echo base_url(). 'index.php/izin/del'; ?>" method="post">
                         <?php 
                             echo "<td>"; echo $izin->tanggal; echo "</td>";
                             echo "<td>"; 
@@ -162,8 +169,16 @@
                             echo "<td>"; echo $izin->id_izin; echo "</td>";
                             echo "<td>"; echo $izin->detail; echo "</td>";
                         ?>
-                        <td> <a href="<?php echo base_url('uploads/'); echo $izin->path;?>" class ="btn-sm">lihat</a> </td>
+                        <td> 
+                            <a class="tombol btn btn-sm btn-success" href="<?php echo base_url('uploads/'); echo $izin->path;?>" class ="btn-sm">lihat</a> 
+                            <input type="hidden" name="id" value="<?php echo $izin->id ?>">
+                            <input type="hidden" name="status" value="99">
+                        </td>
+                        <td>
+                            <input type="submit" class="tombol btn-sm btn-danger" value="X">
+                        </td>
                     </tr>
+                    </form>
                     <?php } ?>
                 </tbody>
             </table>

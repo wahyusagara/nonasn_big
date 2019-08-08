@@ -29,7 +29,7 @@
             <!-- <form action="" method="post"> -->
             <?php echo validation_errors(); ?>
             <form action="<?php echo base_url();?>index.php/izin/do_insert" method="post">
-                <input type="hidden" value="<? echo $_SESSION["user_name"]; ?>" name="id_karyawan" placeholder="1111">
+                <input type="hidden" value="<? echo $_SESSION["user_id"]; ?>" name="id_karyawan" placeholder="1111">
                 <div class="form-group row">
                     <label for="staticEmail" class="col-sm-3 col-form-label">Jenis Cuti</label>
                     <div class="col-sm-9">

@@ -25,7 +25,8 @@ class Kontak extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('id_pegawai', 'id_pegawai', 'required');
 		$this->form_validation->set_rules('topik', 'topik', 'required');
-		$this->form_validation->set_rules('deskripsi', 'deskripsi', 'required');
+        $this->form_validation->set_rules('deskripsi', 'deskripsi', 'required');
+        $this->form_validation->set_rules('userfile', 'userfile', '');
 		if ($this->form_validation->run() === FALSE){
 			$this->load->view("part/nav");
             $this->load->view("pertanyaan", $data);			

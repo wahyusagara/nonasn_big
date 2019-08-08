@@ -11,7 +11,7 @@ class Cuti extends CI_Model
 		return $this->db->get('tb_pejabat');
 	}
 	function tampil_cuti(){
-		$sess = $this->session->userdata('user_name');
+		$sess = $this->session->userdata('user_id');
 		// return $this->db->get('tbl_cuti');
 		$this->db->select ( '*' ); 
 		$this->db->from ( 'tbl_cuti' );
@@ -24,17 +24,23 @@ class Cuti extends CI_Model
     }
 	
 	function tampil_izin(){
-		$sess = $this->session->userdata('user_name');
+		$sess = $this->session->userdata('user_id');
 		// return $this->db->get('tbl_cuti');
 		$this->db->select ( '*' ); 
 		$this->db->from ( 'tbl_izin' );
+		$this->db->where('status', '0');
 		$this->db->where('id_karyawan', $sess);
 		// $this->db->join ( 'cuti', 'cuti.id = tbl_cuti.id_cuti' , 'left' );
 		$this->db->order_by("tanggal", "desc");
 		$izin_psw = $this->db->get ();
 		log_message('debug',print_r($izin_psw,TRUE));
 		return $izin_psw->result ();
-    }
+	}
+
+	function del_izin($where,$data,$table){
+		$this->db->where($where);
+		$this->db->update($table,$data);
+	}	
 	
 	public function set_file($path,$post){ 
 		$upload_data = $this->upload->data(); 
