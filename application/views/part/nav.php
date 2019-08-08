@@ -99,6 +99,20 @@
         </div>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#kolapse-help" aria-expanded="true" aria-controls="kolapse-help">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Hubungi Kami</span>
+        </a>
+        <div id="kolapse-help" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Permohonan Pengajuan</h6>
+            <a class="collapse-item" href="<?= base_url();?>index.php/kontak">Kirim Pertanyaan</a>
+            <!-- <a class="collapse-item" href="<?= base_url();?>index.php/daftar/absen">Lihat Presensi</a> -->
+          </div>
+        </div>
+      </li>
+
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 

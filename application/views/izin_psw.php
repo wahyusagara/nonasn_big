@@ -32,9 +32,8 @@
             <div class="col-md-4" style="background:#e8e8e8; color:#000; padding:10px;">
                 <!-- <form action="" method="post"> -->
                 <?php echo validation_errors(); ?>
-                <!-- <form action="<?php echo base_url();?>index.php/izin/create_psw" method="post"> -->
                 <?php echo form_open_multipart('izin/create_psw');?>
-                    <input type="hidden" value="<? echo $_SESSION["user_name"]; ?>" name="id_karyawan" placeholder="1111">
+                    <input type="hidden" value="<? echo $_SESSION["user_id"]; ?>" name="id_karyawan" placeholder="1111">
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-5 col-form-label">Jenis Cuti</label>
                         <div class="col-sm-7">
@@ -105,7 +104,7 @@
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-5 col-form-label">Attach File</label>
                         <div class="col-sm-7">
-                        <input type="file" name="userfile"  class="btn btn-default btn-file" />
+                        <input class="startdate" type="file" name="userfile"  class="btn btn-default btn-file" />
                         </div>
                     </div>
 
