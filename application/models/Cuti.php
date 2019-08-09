@@ -15,6 +15,7 @@ class Cuti extends CI_Model
 		// return $this->db->get('tbl_cuti');
 		$this->db->select ( '*' ); 
 		$this->db->from ( 'tbl_cuti' );
+		$this->db->where('status', '0');
 		$this->db->where('id_karyawan', $sess);
 		$this->db->join ( 'cuti', 'cuti.id = tbl_cuti.id_cuti' , 'left' );
 		$this->db->order_by("tanggal", "desc");

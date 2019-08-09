@@ -111,14 +111,20 @@
                     foreach($cuti as $cut){ 
                 ?>
                 <tr>
-                
+                <form action="<?php echo base_url(). 'index.php/izin/del_cuti'; ?>" method="post">
                     <?php 
                         echo "<td>"; echo $cut->tanggal; echo "</td>";
                         echo "<td>"; echo $cut->jenis_cuti; echo "</td>";
                         echo "<td>"; echo $cut->lama_cuti; echo " hari"; echo "</td>";
                         echo "<td>"; echo $cut->detail; echo "</td>";
                     ?>
+                    <td>
+                    <input type="hidden" name="idnya" value="<?php echo $cut->idCuti ?>">
+                    <input type="hidden" name="status" value="99">
+                        <input type="submit" class="tombol btn-sm btn-danger" value="X">
+                    </td>
                 </tr>
+                </form>
                 <?php } ?>
             </tbody>
         </table>

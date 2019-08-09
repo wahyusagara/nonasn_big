@@ -91,6 +91,22 @@ class Izin extends CI_Controller{
 		$this->Cuti->del_izin($where,$data,'tbl_izin');
 		redirect('izin/psw');
 	}
+
+	function del_cuti(){
+		$id = $this->input->post('idnya');
+		$status = $this->input->post('status');
+	
+		$data = array(
+			'status' => $status
+		);
+	
+		$where = array(
+			'idCuti' => $id
+		);
+	
+		$this->Cuti->del_izin($where,$data,'tbl_cuti');
+		redirect('izin/index');
+	}
 	// function do_insert_psw(){
 	// 	$config['upload_path']          = './uploads/';
 	// 	$config['allowed_types']        = 'gif|jpg|png';
