@@ -19,7 +19,11 @@
   <link rel="stylesheet" type="text/css" href="<?= base_url();?>/assets/css/bootstrap-datepicker.css"/>
   <!-- Custom styles for this template-->
   <link href="<?= base_url();?>assets/css/sb-admin-2.css" rel="stylesheet">
-
+  <style>
+    .btn{
+        border-radius: 0px;
+    }
+  </style>
 </head>
 
 <body id="page-top">

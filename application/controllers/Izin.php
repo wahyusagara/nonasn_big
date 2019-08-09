@@ -167,7 +167,7 @@ class Izin extends CI_Controller{
         $this->form_validation->set_rules('detail', 'detail', 'required');
 		if ($this->form_validation->run() === FALSE){
 			$this->load->view("part/nav");
-			$this->load->view("izin_psw", $data,$sess);			
+			$this->load->view("error");			
 			$this->load->view("part/footer");
 		}else{
 			// Upload the files then pass data to your model
