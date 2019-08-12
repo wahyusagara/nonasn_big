@@ -14,10 +14,11 @@ class Izin extends CI_Controller{
 	function index(){
 		$sess = $this->session->userdata('user_name');
 		$data['jenis_cuti'] = $this->Cuti->tampil_data()->result();
-		$data['pejabat'] = $this->Cuti->tampil_pejabat()->result();
-		// $data['cuti'] = $this->Cuti->tampil_cuti()->result();
+		$data['eselon'] = $this->Cuti->tampil_pejabat()->result();
+		$data['total_cuti'] = $this->Cuti->hitung_cuti($sess);
+		// $data['jml_cuti'] = $this->Cuti->hitung_cuti($sess);
 		$data['cuti'] = $this->Cuti->tampil_cuti($sess);
-		// print $data;
+		// print $data['sisa_cuti'];
 		// die();
 		$this->load->view("part/nav");
 		$this->load->view("izin", $data,$sess);			

@@ -23,13 +23,55 @@
     ?>
 </h1> -->
 <div class ="container">
-    <div class="row justify-content-md-center">
+    <div class="row">
         
         <div class="col-md-12">
             <h2> Form Pengurusan Izin Cuti </h2>
         </div>
 
-        <div class="col-sm-10 ">
+        <div class="col-md-3" style="margin-top:10px; background:#e8da72; color:#000;">
+            
+            <table class="table" style="margin-top:10px;color:#000;">
+            
+            <br> <b>Tabel Cuti: </b>
+            <tbody>
+            <tr>
+                <th scope="row">Cuti Tahunan</th>
+                <td>
+                    <?php 
+                        // print_r ($total_cuti[0]);
+                        $cuti_tahun = '12';
+                        echo $cuti_tahun. " Hari";
+                    ?>
+                </td>
+                </tr>
+                <tr>
+                <th scope="row">Total Cuti</th>
+                <td>
+                    <?php 
+                        // $tot = print_r ($total_cuti[0]);
+                        echo $total_cuti[0];
+                        echo " Hari";
+                    ?>
+                </td>
+                </tr>
+                
+            </tbody>
+            </table>
+            
+            <center>
+            Sisa Cuti Anda:
+                <br> 
+                
+                    <?
+                    $total_cutinya = $cuti_tahun - $total_cuti[0];
+                    echo "<h1>".$total_cutinya. "</h1>";
+                    echo " Hari Lagi "
+                    ?>
+            </center>
+        </div>
+
+        <div class="col-sm-9 ">
         <button type="button" class="btn btn-info btn-md float-right" 
             data-toggle="modal" 
             data-target="#myModal"
@@ -70,6 +112,8 @@
                 </tbody>
             </table>
         </div>
+
+        
     </div>
 </div>
 
@@ -128,13 +172,13 @@
                         <div class="col-sm-9">
                         <select class="selectpicker form-control" name="id_atasan">
                                 <?php 
-                                    foreach($pejabat as $pj){ 
+                                    foreach($eselon as $pj){ 
                                 ?>
                                 <option value="<?php echo $pj->id ?>">
                                     <?php 
-                                        echo $pj->nama_pejabat ;
+                                        echo $pj->nama ;
                                         echo " / ";
-                                        echo $pj->Gol ;
+                                        echo $pj->gol ;
                                         // echo "]" ;
                                     ?>
                                 </option>

@@ -34,7 +34,7 @@
 <div class="container">
     <div class ="row justify-content-md-center">
         <div class="col-sm-10 ">
-            <h4> Form Izin Pulang sebelum waktunya </h4>
+            <h4> Pulang sebelum waktunya </h4>
         </div>
         
 
@@ -49,9 +49,9 @@
                 <thead>
                 <tr>
                     <th width="10%">Tanggal</th>
-                    <th width="10%">Jam</th>
+                    <th width="15%">Jam</th>
                     <th width="10%">Kategori</th>
-                    <th width="50%">Deskripsi</th>
+                    <th width="45%">Deskripsi</th>
                     <th width="10%">File</th>
                     <th width="10%"></th>
                 </tr>
@@ -182,9 +182,9 @@
                             ?>
                             <option value="<?php echo $pj->id ?>">
                                 <?php 
-                                    echo $pj->nama_pejabat ;
+                                    echo $pj->nama ;
                                     echo " / ";
-                                    echo $pj->Gol ;
+                                    echo $pj->gol ;
                                     // echo "]" ;
                                 ?>
                             </option>

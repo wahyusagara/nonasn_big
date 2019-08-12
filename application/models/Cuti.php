@@ -8,7 +8,9 @@ class Cuti extends CI_Model
 		return $this->db->get('cuti');
 	}
 	function tampil_pejabat(){
-		return $this->db->get('tb_pejabat');
+		$this->db->where('eselon', 'II');
+		return $this->db->get('pejabat');
+		
 	}
 	function tampil_cuti(){
 		$sess = $this->session->userdata('user_id');
@@ -36,6 +38,15 @@ class Cuti extends CI_Model
 		$izin_psw = $this->db->get ();
 		log_message('debug',print_r($izin_psw,TRUE));
 		return $izin_psw->result ();
+	}
+	function hitung_cuti(){
+		$sess = $this->session->userdata('user_id');
+		$query = $this->db->select_sum('lama_cuti', 'Amount');
+		$query = $this->db->where('id_karyawan', $sess);
+		$query = $this->db->get('tbl_cuti');
+		$sisa_cuti = $query->result();
+		
+		return $sisa_cuti[0]->Amount;
 	}
 
 	function del_izin($where,$data,$table){

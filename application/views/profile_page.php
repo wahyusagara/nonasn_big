@@ -142,9 +142,8 @@
                             </li>
                         </ul>
                     </div> -->
-                    <div class="logbook">
+                    <!-- <div class="logbook">
                         <form>
-                            <!-- <h2>LOG BOOK</h2> -->
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                 <input type="text" class="form-control bigtext" placeholder="apa yang anda lakukan hari ini ....">
@@ -154,7 +153,7 @@
                             
                             <button type="button" class="btn btn-primary btn-lg btn-block">Isi Log Book</button>
                         </form>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         <!-- code end -->
