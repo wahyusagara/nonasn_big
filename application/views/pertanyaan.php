@@ -8,7 +8,7 @@
             <div class="col-sm-12">
                 <h4>Kirim Pertanyaan </h4>
             </div>
-            <div class="col-md-8" style="background:#e8e8e8; color:#000; padding:10px;">
+            <div class="col-md-7" style="background:#e8e8e8; color:#000; padding:10px;">
                 <!-- <form action="" method="post"> -->
                 <?php echo validation_errors(); ?>
                 <?php echo form_open_multipart('kontak/create_pertanyaan');?>

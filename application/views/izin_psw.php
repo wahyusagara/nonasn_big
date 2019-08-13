@@ -39,12 +39,12 @@
         
 
         <div class="col-sm-10">
-        <button type="button" class="btn btn-info btn-md float-right" 
-            data-toggle="modal" 
-            data-target="#myModal"
-            style="margin-bottom:20px;">
-            Tambah Izin Pulang Sebelum Waktu
-        </button>
+            <button type="button" class="btn btn-info btn-md float-right" 
+                data-toggle="modal" 
+                data-target="#myModal"
+                style="margin-bottom:20px;">
+                Tambah Izin Pulang Sebelum Waktu
+            </button>
             <table class="table">
                 <thead>
                 <tr>
@@ -83,6 +83,8 @@
                     <?php } ?>
                 </tbody>
             </table>
+
+            
         </div>
     </div>
 </div>

@@ -7,7 +7,7 @@
     }
 </style>
 <?php  
- $sumber = 'http://10.10.160.189/absen/konek.php';
+ $sumber = 'http://10.10.160.189/absen/mo/nov.php';
  $user = $_SESSION["user_name"];
 //  echo $user;
  $konten = file_get_contents($sumber);
@@ -45,20 +45,20 @@
                         <script>document.write('<em> ' + bulan + '</em> ' + tahun);</script>
                     </h3>
                 </div>
-                <div class="col-md-3 float-right">
-                <select name="forma" onchange="location = this.value;">
-                    <option value="presensi/jan">januari</option>
-                    <option value="presensi/feb">februari</option>
-                    <option value="presensi/mar">maret</option>
-                    <option value="presensi/apr">April</option>
-                    <option value="presensi/mei">Mei</option>
-                    <option value="presensi/jun">Juni</option>
-                    <option value="presensi/jul">Juli</option>
-                    <option value="presensi/agu">Agustus</option>
-                    <option value="presensi/sep">September</option>
-                    <option value="presensi/okt">Oktober</option>
-                    <option value="presensi/nov">November</option>
-                    <option value="presensi/des">Desember</option>
+                <div class="col-md-3 float-right ">
+                <select class="form-control margin20" name="forma" onchange="location = this.value;">
+                    <option value="jan">januari</option>
+                    <option value="feb">februari</option>
+                    <option value="mar">maret</option>
+                    <option value="apr">April</option>
+                    <option value="mei">Mei</option>
+                    <option value="jun">Juni</option>
+                    <option value="jul">Juli</option>
+                    <option value="agu">Agustus</option>
+                    <option value="sep">September</option>
+                    <option value="okt">Oktober</option>
+                    <option selected value="nov">November</option>
+                    <option value="des">Desember</option>
                 </select>
                 </div>
             </div>

@@ -29,9 +29,21 @@ $FROM_IN	= false;
 	ini_set('memory_limit', '-1');
 		
 	// $data	= array();
+	$tglnow = date("Y"); 
 	$conn 	= connect_mesin();
 	// $sql	= "SELECT username, userID, terminalName,convert(char(30),transactiontime,20) from ngv_AuthLog where userID = '' ORDER BY transactiontime Desc;";
-	$sql	= "SELECT userID, terminalName,transactiontime, convert(char(30),transactiontime,20) from ngv_AuthLog where transactiontime > DATEADD(month, -1,GETDATE()) and isnull(userID,'') <> '' ORDER BY TransactionTime DESC;  ";
+	$sql	= "SELECT 
+				userID, 
+				terminalName,
+				transactiontime, 
+				convert(char(30),transactiontime,20) 
+				from ngv_AuthLog 
+				-- where transactiontime > DATEADD(month, -1,GETDATE()) 
+				WHERE  (DATEPART(yy, TransactionTime) = $tglnow
+				AND    DATEPART(mm, TransactionTime) = 8
+				-- AND    DATEPART(dd, TransactionTime) = 8
+				)
+				AND isnull(userID,'') <> '' ORDER BY TransactionTime DESC;  ";
 	
 	$rs = sqlsrv_query($conn,$sql);
 	// $data[] = print_r($row); 

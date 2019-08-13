@@ -17,6 +17,8 @@
   <link rel="stylesheet" type="text/css" href="<?= base_url();?>/assets/css/datatable.css"/>
   <link rel="stylesheet" type="text/css" href="<?= base_url();?>/assets/css/big.css"/>
   <link rel="stylesheet" type="text/css" href="<?= base_url();?>/assets/css/bootstrap-datepicker.css"/>
+  
+ 
   <!-- Custom styles for this template-->
   <link href="<?= base_url();?>assets/css/sb-admin-2.css" rel="stylesheet">
   <style>
@@ -83,7 +85,7 @@
             <h6 class="collapse-header">Daftar Presensi</h6>
             <!-- <a class="collapse-item" href="buttons.html">ASN</a> -->
             <a class="collapse-item" href="<?= base_url();?>index.php/daftar">Lihat Daftar</a>
-            <a class="collapse-item" href="<?= base_url();?>index.php/daftar/absen">Lihat Presensi</a>
+            <a class="collapse-item" href="<?= base_url();?>index.php/presensi">Lihat Presensi</a>
           </div>
         </div>
       </li>

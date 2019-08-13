@@ -34,7 +34,7 @@
 
     <!-- Page level custom scripts -->
     <script src="<?= base_url();?>/assets/js/demo/datatables-demo.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/jquery.fancytable/dist/fancyTable.min.js"></script>
 </body>
 
 </html>
