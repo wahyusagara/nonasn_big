@@ -3,6 +3,17 @@
 	<title>Login - NON ASN</title>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <style>
+        body{
+            /* background: #91e842; */
+            background: rgba(72,234,183,1);
+            background: -moz-radial-gradient(center, ellipse cover, rgba(72,234,183,1) 0%, rgba(31,229,176,1) 100%);
+            background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(72,234,183,1)), color-stop(100%, rgba(31,229,176,1)));
+            background: -webkit-radial-gradient(center, ellipse cover, rgba(72,234,183,1) 0%, rgba(31,229,176,1) 100%);
+            background: -o-radial-gradient(center, ellipse cover, rgba(72,234,183,1) 0%, rgba(31,229,176,1) 100%);
+            background: -ms-radial-gradient(center, ellipse cover, rgba(72,234,183,1) 0%, rgba(31,229,176,1) 100%);
+            background: radial-gradient(ellipse at center, rgba(72,234,183,1) 0%, rgba(31,229,176,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#48eab7', endColorstr='#1fe5b0', GradientType=1 );
+        }
         .form-signin
         {
             max-width: 330px;
@@ -47,7 +58,7 @@
         {
             margin-top: 20px;
             padding: 40px 0px 20px 0px;
-            background-color: #f7f7f7;
+            background-color: #c9e699;
             -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
             -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
             box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
@@ -78,17 +89,23 @@
             display: block;
             margin-top: 10px;
         }
+        .tx{
+            text-align:center;
+            font-size: 20px;
+            font-weight:900;
+        }
     </style>
 </head>
 <body>
 <div class="container" style="margin-top: 50px">
     <div class="row">
         <div class="col-sm-6 col-md-4 col-md-offset-4">
-            <h1 class="text-center login-title">Masuk Administrator</h1>
+            <!-- <h1 class="text-center login-title">Masuk Administrator</h1> -->
             <?php if(isset($error)) { echo $error; }; ?>
             <div class="account-wall">
-                <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
-                    alt="">    
+                <img class="profile-img" src="https://upload.wikimedia.org/wikipedia/commons/4/41/Logo_Badan_Informasi_Geospasial.png"
+                    alt="">   <br>
+                <div class="tx">PORTAL NON ASN </div> 
                 <form class="form-signin" method="POST" action="<?php echo base_url() ?>index.php/login">
                 <div class="form-group">
                     <input type="text" class="form-control" name="username" placeholder="Masukkan username Anda" autofocus>
@@ -99,17 +116,14 @@
                     <?php echo form_error('password'); ?>
                 </div>
 
-                <button class="btn btn-lg btn-primary btn-block" name="btn-login" id="btn-login" type="submit">
+                <button class="btn btn-lg btn-warning btn-block" name="btn-login" id="btn-login" type="submit">
                     Masuk</button>
 
-                <label class="checkbox pull-left">
-                    <input type="checkbox" value="remember-me">
-                    Ingatkan Saya
-                </label>
-                <a href="#" class="pull-right need-help">Butuh bantuan? </a><span class="clearfix"></span>
+                
+                <!-- <a href="#" class="pull-right need-help">Butuh bantuan? </a><span class="clearfix"></span> -->
                 </form>
             </div>
-            <a href="#" class="text-center new-account">Buat Akun </a>
+            <!-- <a href="#" class="text-center new-account">Buat Akun </a> -->
             <div id="error" style="margin-top: 10px"></div>
         </div>
     </div>

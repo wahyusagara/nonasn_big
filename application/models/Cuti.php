@@ -43,6 +43,7 @@ class Cuti extends CI_Model
 		$sess = $this->session->userdata('user_id');
 		$query = $this->db->select_sum('lama_cuti', 'Amount');
 		$query = $this->db->where('id_karyawan', $sess);
+		$query = $this->db->where('status', '0');
 		$query = $this->db->get('tbl_cuti');
 		$sisa_cuti = $query->result();
 		

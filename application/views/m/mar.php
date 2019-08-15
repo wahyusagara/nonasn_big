@@ -14,6 +14,7 @@
  $data = json_decode($konten, true);
 
   $ID = $user;
+  $bulan = "Maret";
   $list = array_filter($data, function ($var) use ($ID) {
       return ($var['userID'] == $ID);
   });
@@ -40,10 +41,13 @@
         ?> -->
         <div class ="row justify-content-md-center">
             <div class ="col-md-12">
-                <div class="col-md-3">
-                    <h3>
-                        <script>document.write('<em> ' + bulan + '</em> ' + tahun);</script>
-                    </h3>
+                <div class="col-md-12">
+                    <center>
+                        <span class="judul-presensi">
+                            Data Presensi Kehadiran
+                        <!-- <script>document.write('JANUARI ' + tahun);</script> -->
+                        </span>
+                    </center>
                 </div>
                 <div class="col-md-3 float-right ">
                 <select class="form-control margin20" name="forma" onchange="location = this.value;">
@@ -62,6 +66,7 @@
                 </select>
                 </div>
             </div>
+            
             <div class ="col-md-3 nopadding">
                 <table class="table table-striped">
                     <thead>
@@ -111,6 +116,7 @@
                     <tr>
                         <th>Jam Datang</th>
                         <th>Jam Pulang</th>
+                        <th>Status</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -119,10 +125,44 @@
                     <? foreach ($grouped_types as $row) { ?>
                         <tr>
                             <td>
-                                <? echo end($row);?>
+                                <? 
+                                    // echo end($row);
+                                    echo min($row);
+                                ?>
                             </td>
                             <td>
-                                <? echo $row[0]; ?>
+                                <!-- <? echo $row[0]; ?> -->
+                                <?php
+                                    if(count($row) < 2)
+                                    {
+                                        echo "belum absen pulang";
+                                    }
+                                    else{
+                                        // echo $row[0];
+                                        echo reset($row);
+                                    }
+                                ?>
+                            </td>
+                            <td>
+                                <?php
+                                    $datang = strtotime(min($row));  
+                                    $pulang = strtotime(reset($row));  
+                                    $selisih = ($pulang - $datang)/3600;
+                                    $pembulatan = round($selisih, 2);
+                                    // echo $pembulatan;
+
+                                    if ($pembulatan > "8.5") {
+                                        echo "<span class=' alert-success'>";
+                                        echo "Pulang sesuai waktu";
+                                        echo "</span>";
+                                    }
+                                    else{
+                                        echo "<span class=' alert-danger'>";
+                                        echo "Absen tidak sesuai";
+                                        echo "</span>";
+                                    }
+                                    
+                                ?>
                             </td>
                         </tr>
                     <?  } ?>
@@ -135,7 +175,15 @@
                 </tbody>
             </table>
 
-            
+            </div>
+            <?php
+                if(count($list) < 1)
+                
+                {
+                    $this->load->view("m/notfound");
+                }
+            ?>
         </div>
     </div>
 </div>
+

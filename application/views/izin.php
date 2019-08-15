@@ -72,13 +72,33 @@
         </div>
 
         <div class="col-sm-9 ">
-        <button type="button" class="btn btn-info btn-md float-right" 
-            data-toggle="modal" 
-            data-target="#myModal"
-            style="margin-bottom:20px;"
-        >
-            Tambah Izin Cuti
-        </button>
+            <?php
+                if ($total_cutinya > "0") { 
+            ?>
+            <button type="button" class="btn btn-info btn-md float-right" 
+                data-toggle="modal" 
+                data-target="#myModal"
+                style="margin-bottom:20px;"
+            >
+                Tambah Izin Cuti
+            </button>
+            <?php        
+                }
+                else{
+                    echo "<center>";
+                    echo "<span class='alert alert-danger'>";
+                    echo "Kuota cuti anda sudah habis, tidak dapat melakukan cuti kembali";
+                    echo "</span>";
+                    echo "</center>";
+                }
+            ?>
+            <!-- <button type="button" class="btn btn-info btn-md float-right" 
+                data-toggle="modal" 
+                data-target="#myModal"
+                style="margin-bottom:20px;"
+            >
+                Tambah Izin Cuti
+            </button> -->
             <table class="table" >
                 <thead>
                 <tr>

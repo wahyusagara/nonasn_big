@@ -6997,6 +6997,9 @@ button.bg-dark:focus {
 .bg-white {
   background-color: #fff !important;
 }
+.bg-hejo{
+  background: #b1f3dd;
+}
 
 .bg-transparent {
   background-color: transparent !important;
@@ -12015,4 +12018,12 @@ body.sidebar-toggled footer.sticky-footer {
 }
 .margin20{
   margin-bottom:20px;
+}
+.main{
+  width: 80%;
+  margin: 0 auto;
+}
+.judul-presensi{
+  font-size: 20px;
+  font-weight: 900;
 }

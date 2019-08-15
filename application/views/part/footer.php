@@ -1,7 +1,7 @@
-<footer class="sticky-footer bg-white">
+<footer class="sticky-footer bg-white" style="margin-top:50px;">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Portal Non ASN | Badan Informasi Geospasial &copy; 2019</span>
           </div>
         </div>
       </footer>

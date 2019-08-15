@@ -6,14 +6,10 @@ class Presensi extends CI_Controller {
     public function __construct()
     {
 		parent::__construct();
-		
 		$this->load->helper('url');
 		$this->load->library('xmlrpc');
-		// $this->load->library('xmlrpcs');
-		// 	$this->refcode = $this->session->userdata('refcode');
-		// }
-        //load model admin
-        $this->load->model('admin');
+		$this->load->model('admin');
+		
     }
 	public function index()
 	{
@@ -35,6 +31,7 @@ class Presensi extends CI_Controller {
     }
     public function mar()
 	{	
+		
 		$this->load->view("part/nav");
 		$this->load->view("m/mar");			
 		$this->load->view("part/footer");
