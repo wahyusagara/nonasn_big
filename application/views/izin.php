@@ -1,7 +1,7 @@
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.js" data-modules="effect effect-bounce effect-blind effect-bounce effect-clip effect-drop effect-fold effect-slide"></script>
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
+<script src="<?= base_url();?>assets/js/jquery.js"></script>
+<script src="<?= base_url();?>assets/js/jquery_ui.js"></script>
+<script src="<?= base_url();?>assets/js/bootstrap.js" data-modules="effect effect-bounce effect-blind effect-bounce effect-clip effect-drop effect-fold effect-slide"></script>
+<link rel="stylesheet" href="<?= base_url();?>assets/css/jquery-ui.css" />
 
 <style>
     .detail {
@@ -176,7 +176,8 @@
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-3 col-form-label">Jumlah Hari</label>
                         <div class="col-sm-9">
-                        <input type="number" class="form-control" id="staticEmail" name="lama_cuti">
+                        <input type="number" class="form-control" id="staticEmail" name="lama_cuti" max="<? echo $total_cutinya ?>">
+                        <small> pengambilan cuti maksimal <? echo $total_cutinya ?> hari </small>
                         </div>
                     </div>
 

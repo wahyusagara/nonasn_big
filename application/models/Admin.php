@@ -53,6 +53,34 @@ class Admin extends CI_Model
         
     }
 
+    function hitung_peg()
+    {
+        $this->db->select_count ( '*' ); 
+        $this->db->from ( 'tb_pegawai' );
+        $jabatan = $this->db->get ();
+        return $jabatan->result ();
+    }
+
+    function viewjabatan()
+    {
+        $this->db->select ( '*' ); 
+        $this->db->from ( 'jabatan' );
+        $jabatan = $this->db->get ();
+        return $jabatan->result ();
+    }
+
+    function viewunit()
+    {
+        $this->db->select ( '*' ); 
+        $this->db->from ( 'unit_kerja_es_2' );
+        // $this->db->order_by("id_jabatan", "asc");
+        $unit = $this->db->get ();
+        // log_message('debug',print_r($unit,TRUE));
+        return $unit->result ();
+    }
+
+    
+
     function show_peg_id($data){
         $sess = $this->session->userdata('user_id');
         // print $sess;

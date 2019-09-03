@@ -6,8 +6,8 @@
 				<div class="text-size px-3 bg-white-transparent">
 
 				<?php foreach ($single_peg as $pegawainya): ?>
+				
 				<form method="post" action="<?php echo base_url() . "index.php/dashboard/update_peg"?>">
-
 					<div class="form-group row">
 						<div class ="col-sm-3">
 							<label id="hide">ID Absen :</label>

@@ -53,6 +53,9 @@
         padding:20px;
         /* width:60%; */
     }
+    .card{
+        text-align:center;
+    }
 </style>
 <!------ Include the above in your HEAD tag ---------->
 <?php  
@@ -161,41 +164,36 @@
 
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4 mb-4">
             
             ...
-
         </div>
+        
     </div>
 </div>
 
-<script src="<?= base_url();?>/assets/js/geo.js"></script>
 <script>
-	L.ClickableTooltip = L.Tooltip.extend({
-    onAdd: function (map) {
-        L.Tooltip.prototype.onAdd.call(this, map);
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://sdm.big.go.id/siap/presensi/index.php/api/api/hari_libur",
+  "method": "POST",
+  "headers": {
+    "Authorization": "Basic ZGF0NGFrczNzOmMxYjFuMG5n",
+    "User-Agent": "PostmanRuntime/7.15.2",
+    "Accept": "*/*",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "d77599ca-32c8-4fef-a288-19a59e3d2962,28d9ef96-845d-47ec-857a-c54bf4254ea5",
+    "Host": "sdm.big.go.id",
+    "Cookie": "BIG_session_Name=a%3A5%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%22d7fb167a829a2139add8dbf94be5afe3%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A14%3A%22192.168.218.57%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A21%3A%22PostmanRuntime%2F7.15.2%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1566527664%3Bs%3A9%3A%22user_data%22%3Bs%3A0%3A%22%22%3B%7D4a33a6ebd1f415e08e1a7cf389a92e72",
+    "Accept-Encoding": "gzip, deflate",
+    "Content-Length": "",
+    "Connection": "keep-alive",
+    "cache-control": "no-cache"
+  }
+}
 
-        var el = this.getElement(),
-            self = this;
-
-        el.addEventListener('click', function() {
-            self.fire("click");
-        });
-        el.style.pointerEvents = 'auto';
-    }
-});
-
-var tooltip = new L.ClickableTooltip({
-    direction: 'center',
-    permanent: true,
-    noWrap: true,
-    opacity: 0.9
-});
-tooltip.setContent( "Example" );
-tooltip.setLatLng(new L.LatLng(48.8583736, 2.2922926));
-tooltip.addTo(map);
-
-tooltip.on('click', function() {
-    console.log("clicked too");
+$.ajax(settings).done(function (response) {
+  console.log(response);
 });
 </script>

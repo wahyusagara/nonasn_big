@@ -1,9 +1,9 @@
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.js" ></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
+<script src="<?= base_url();?>assets/js/jquery.js"></script>
+<script src="<?= base_url();?>assets/js/jquery_ui.js"></script>
+<script src="<?= base_url();?>assets/js/bootstrap.js" ></script>
+<script src="<?= base_url();?>assets/js/jquery_timepicker.js"></script>
+<link rel="stylesheet" href="<?= base_url();?>assets/css/jquery-ui.css" />
+<link rel="stylesheet" href="<?= base_url();?>assets/css/jquery_timepicker.css">
 
 <style>
     .detail {
@@ -219,7 +219,7 @@
 </script>  
 <script type="text/javascript">
     $('.timepicker').timepicker({
-        timeFormat: 'h:mm p',
+        // timeFormat: 'h:mm p',
         interval: 30,
         minTime: '8',
         maxTime: '5:00pm',
@@ -229,6 +229,8 @@
         dropdown: true,
         scrollbar: true,
         dateFormat: "dd-mm-yy", 
-        timeFormat: "HH:mm"
+        // timeFormat: "HH:MM"
+        ampm: true, // FOR AM/PM FORMAT
+        format : 'g:i A'
     });
 </script> 
